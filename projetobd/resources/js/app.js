@@ -1,4 +1,8 @@
 import './bootstrap';
+// Importando os arquivos de CSS e JS do Bootstrap
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+
 
 import Alpine from 'alpinejs';
 
