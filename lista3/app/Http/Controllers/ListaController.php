@@ -46,4 +46,33 @@ class ListaController extends Controller
         return "A média é: ". ($nota1 + $nota2 + $nota3) / 3 ;
         // return "O produto é " .$valor1 * $valor2 ;
     }
+
+    public function calcularExer6(Request $request){
+        $temp = (int)$request->input('temp');
+
+        return "A temperatura em Fahrenheit é: ". ($temp * 1.8) + 32 ;
+    }
+
+    public function calcularExer7(Request $request){
+        $temp = (int)$request->input('temp');
+
+        return "A temperatura em Celsius é: ". ($temp - 32) / 1.8 ;
+    }
+
+    public function calcularExer8(Request $request){
+        $valor1 = (int)$request->input('altura');
+        $valor2 = (int)$request->input('largura');
+        return "O área é " .$valor1 * $valor2 ;
+    }
+
+    public function calcularExer9(Request $request){
+        $valor1 = (int)$request->input('raio');
+        return "O área do círculo é " . (3.14 * ($valor1**2)) ;
+    }
+
+    public function calcularExer10(Request $request){
+        $valor1 = (int)$request->input('altura');
+        $valor2 = (int)$request->input('largura');
+        return "O perímetro é " .$valor1 + $valor1 + $valor2 + $valor2 ;
+    }
 }
