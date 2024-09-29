@@ -15,8 +15,12 @@ use App\Http\Controllers\ListaController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('lista');
 });
 
-Route::get('/exer1', [ListaController::class, 'mostrarExer1']);
-Route::post('/respostaexer1', [ListaController::class, 'calcularExer1']);
+Route::get('/exer/{id}', [ListaController::class, 'mostrarExercicio'])->name('exer');
+
+//for para criar 20 rotas
+for($i = 1; $i <= 20; $i++){
+    Route::post("/respostaexer$i", [ListaController::class, "calcularExer$i"]);
+}
