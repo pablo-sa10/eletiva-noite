@@ -104,4 +104,42 @@ class ListaController extends Controller
         $imc = $peso / $exp;
         return "O imc é " . $imc;
     }
+
+    public function calcularExer16(Request $request){
+        $valor1 = (int)$request->input('valor');
+        $valor2 = (int)$request->input('perc');
+
+        $desc = ($valor1 * $valor2) / 100;
+        return "O preço com desconto é " .$valor1 - $desc;
+    }
+
+    public function calcularExer17(Request $request){
+        $capital = (int)$request->input('capital');
+        $taxa = (int)$request->input('taxa');
+        $periodo = (int)$request->input('periodo');
+
+        return "O total acumulado é " .$capital * $taxa * $periodo;
+    }
+
+    public function calcularExer18(Request $request){
+        $capital = (int)$request->input('capital');
+        $taxa = (int)$request->input('taxa');
+        $periodo = (int)$request->input('periodo');
+
+        return "O total acumulado é " .($capital * (1 + $taxa) ** $periodo);
+    }
+
+    public function calcularExer19(Request $request){
+        $dias = (int)$request->input('dias');
+
+        return "Horas: " . $dias * 24  . "; Minutos: " . $dias . 1440 . "; Segundos: " . $dias * 86400 ;
+    }
+
+    public function calcularExer20(Request $request){
+        $distancia = (int)$request->input('distancia');
+        $tempo = (int)$request->input('tempo');
+
+        return "A velocidade média é " .$distancia / $tempo;
+    }
+
 }
