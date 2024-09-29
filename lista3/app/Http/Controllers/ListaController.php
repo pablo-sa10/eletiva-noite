@@ -75,4 +75,33 @@ class ListaController extends Controller
         $valor2 = (int)$request->input('largura');
         return "O perímetro é " .$valor1 + $valor1 + $valor2 + $valor2 ;
     }
+
+    public function calcularExer11(Request $request){
+        $valor1 = (int)$request->input('raio');
+        return "O perímetro do círculo é " . 2 * 3.14 * $valor1 ;
+    }
+
+    public function calcularExer12(Request $request){
+        $base = (int)$request->input('base');
+        $exp = (int)$request->input('exp');
+        return "O resultado é " .$base ** $exp;
+    }
+
+    public function calcularExer13(Request $request){
+        $valor1 = (int)$request->input('metros');
+        return "$valor1 Metros em cm: ". $valor1 * 100 ." cm" ;
+    }
+
+    public function calcularExer14(Request $request){
+        $valor1 = (int)$request->input('km');
+        return "$valor1 km em milhas: ". $valor1 * 0.621371 ." milhas" ;
+    }
+
+    public function calcularExer15(Request $request){
+        $peso = (int)$request->input('peso');
+        $altura = (int)$request->input('altura');
+        $exp = $altura**2;
+        $imc = $peso / $exp;
+        return "O imc é " . $imc;
+    }
 }
