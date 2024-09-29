@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Voluntario;
 use Illuminate\Http\Request;
 
@@ -30,8 +31,15 @@ class VoluntarioController extends Controller
             'atuacao' => $request->atuacao,
         ]);
 
-    
         return redirect()->to('/')->with('success', 'Voluntário cadastrado com sucesso!');
     }
 
+    public function index()
+    {
+        $voluntarios = Voluntario::all();
+
+        // dd($voluntarios);
+
+        return view('index', compact('voluntarios'));
+    }
 }

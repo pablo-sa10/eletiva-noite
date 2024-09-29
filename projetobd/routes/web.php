@@ -4,12 +4,12 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\VoluntarioController;
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', [VoluntarioController::class, 'index'])->name('voluntarios.index');
+
 
 Route::get('/voluntarios/create', [VoluntarioController::class, 'create'])->name('voluntarios.create');
 Route::post('/voluntarios', [VoluntarioController::class, 'store'])->name('voluntarios.store');
+// Route::get('/voluntarios', [VoluntarioController::class, 'index'])->name('voluntarios.index');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

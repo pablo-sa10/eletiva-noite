@@ -51,6 +51,25 @@
                     <td><button class="btn btn-primary">Editar</button></td>
                     <td><button class="btn btn-danger">Excluir</button></td>
                 </tr>
+
+                @if(isset($voluntarios))
+                @foreach($voluntarios as $voluntario)
+                <tr>
+                    <th scope="row">{{ $voluntario->nome }}</th>
+                    <td>{{ $voluntario->idade }}</td>
+                    <td>{{ $voluntario->email }}</td>
+                    <td>{{ $voluntario->telefone }}</td>
+                    <td>{{ $voluntario->atuacao }}</td>
+                    <td><button class="btn btn-primary">Editar</button></td>
+                    <td><button class="btn btn-danger">Excluir</button></td>
+                </tr>
+                @endforeach
+                @else
+                <tr>
+                    <td colspan="7">Nenhum voluntário encontrado.</td>
+                </tr>
+                @endif
+
             </tbody>
         </table>
         <div class="text-end">
