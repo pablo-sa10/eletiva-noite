@@ -20,7 +20,7 @@
 <body>
     <section class="container">
         @if(session('success'))
-        <div class="alert alert-success">
+        <div class="alert alert-success mt-5">
             {{ session('success') }}
         </div>
         @endif
