@@ -20,16 +20,16 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link active" aria-current="page" href="/">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Voluntarios</a>
+                        <a class="nav-link" href="{{route('ong.voluntarios')}}">Voluntarios</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Projetos</a>
+                        <a class="nav-link" href="{{route('ong.projeto')}}">Projetos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Atividades</a>
+                        <a class="nav-link" href="{{route('ong.atividades')}}">Atividades</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link"></a>

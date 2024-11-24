@@ -9,7 +9,7 @@ class VoluntarioController extends Controller
 {
     public function create()
     {
-        return view('voluntarios.create');
+        return view('ong.cadastro_voluntario');
     }
 
     public function store(Request $request)
@@ -34,10 +34,10 @@ class VoluntarioController extends Controller
         return redirect()->to('/')->with('success', 'Voluntário cadastrado com sucesso!');
     }
 
-    public function index()
+    public function voluntarios()
     {
         $voluntarios = Voluntario::all();
 
-        return view('voluntarios.index', compact('voluntarios'));
+        return view('ong.voluntarios', compact('voluntarios'));
     }
 }

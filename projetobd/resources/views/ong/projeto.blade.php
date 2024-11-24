@@ -1,8 +1,4 @@
-<?php
-
-require_once('../resources/views/components/navbar.blade.php')
-
-?>
+@include('components.navbar')
 
 <style>
     .largura {
@@ -68,6 +64,7 @@ require_once('../resources/views/components/navbar.blade.php')
 
     </div>
     <div class="text-end">
-        <a href="{{ route('voluntarios.create') }}" class="btn btn-success">Adicionar Voluntário</a>
+        <a href="{{ route('ong.cadastro_voluntario') }}" class="btn btn-success">Adicionar Voluntário</a>
+        <a href="/" class="btn btn-danger">Voltar</a>
     </div>
 </section>

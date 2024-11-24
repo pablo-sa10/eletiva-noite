@@ -1,13 +1,27 @@
 <?php
 
+use App\Http\Controllers\AtividadesController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\projetos;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\VoluntarioController;
 
 Route::controller(VoluntarioController::class)->group(function(){
-    Route::get('/voluntarios', 'index')->name('voluntarios.index');
-    Route::get('/voluntarios/create', 'create')->name('voluntarios.create');
-    Route::post('/voluntarios/salvar', 'store')->name('voluntarios.store');
+    Route::get('/ong', 'voluntarios')->name('ong.voluntarios');
+    Route::get('/ong/cadastro_voluntario', 'create')->name('ong.cadastro_voluntario');
+    Route::post('/ong/salvar', 'store')->name('ong.salvarVoluntario');
+});
+
+Route::controller(projetos::class)->group(function(){
+    Route::get('/ong/projeto', 'projetos')->name('ong.projeto');
+    // Route::get('/ong/cadastro_voluntario', 'create')->name('ong.cadastro_voluntario');
+    // Route::post('/ong/salvar', 'store')->name('ong.salvarVoluntario');
+});
+
+Route::controller(AtividadesController::class)->group(function(){
+    Route::get('/ong/atividade', 'atividades')->name('ong.atividades');
+    // Route::get('/ong/cadastro_voluntario', 'create')->name('ong.cadastro_voluntario');
+    // Route::post('/ong/salvar', 'store')->name('ong.salvarVoluntario');
 });
 
 Route::get('/', function () {

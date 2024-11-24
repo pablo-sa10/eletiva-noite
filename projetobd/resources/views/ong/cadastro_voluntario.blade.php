@@ -1,12 +1,8 @@
-<?php
-
-require_once('../resources/views/components/navbar.blade.php')
-
-?>
+@include('components.navbar');
 
 <section class="container mt-5">
     <h2 class="mb-5">Cadastro de Voluntário</h2>
-    <form method="POST" action="{{ route('voluntarios.store') }}">
+    <form method="POST" action="{{ route('ong.salvarVoluntario') }}">
         @csrf
         <div class="mb-3 row">
             <div class="col-md-7">
