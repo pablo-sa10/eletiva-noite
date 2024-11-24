@@ -20,7 +20,7 @@ class CreateProjetosTable extends Migration
             $table->unsignedBigInteger('responsavel_id');
             $table->timestamps();
 
-            $table->foreign('id_responsavel')->references('id')->on('voluntarios')->onDelete('cascade');
+            $table->foreign('responsavel_id')->references('id')->on('voluntarios')->onDelete('cascade');
         });
     }
 

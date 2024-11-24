@@ -38,8 +38,6 @@ class VoluntarioController extends Controller
     {
         $voluntarios = Voluntario::all();
 
-        // dd($voluntarios);
-
-        return view('index', compact('voluntarios'));
+        return view('voluntarios.index', compact('voluntarios'));
     }
 }
