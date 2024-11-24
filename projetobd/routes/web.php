@@ -12,11 +12,15 @@ Route::controller(VoluntarioController::class)->group(function(){
     Route::post('/ong/salvar', 'store')->name('ong.salvarVoluntario');
 });
 
-Route::controller(projetos::class)->group(function(){
-    Route::get('/ong/projeto', 'projetos')->name('ong.projeto');
-    // Route::get('/ong/cadastro_voluntario', 'create')->name('ong.cadastro_voluntario');
-    // Route::post('/ong/salvar', 'store')->name('ong.salvarVoluntario');
+Route::controller(projetos::class)->group(function () {
+    Route::get('/ong/projeto', 'projeto')->name('ong.projeto'); 
+    Route::get('/ong/cadastro_projeto', 'create')->name('ong.cadastro_projeto'); 
+    Route::post('/ong/salvar', 'store')->name('ong.salvarProjeto'); 
+    Route::get('/ong/editar_projeto/{id}', 'edit')->name('ong.editar_projeto'); 
+    Route::put('/ong/atualizar/{id}', 'update')->name('ong.atualizarProjeto'); 
+    Route::delete('/ong/excluir/{id}', 'destroy')->name('ong.excluirProjeto'); 
 });
+
 
 Route::controller(AtividadesController::class)->group(function(){
     Route::get('/ong/atividade', 'atividades')->name('ong.atividades');

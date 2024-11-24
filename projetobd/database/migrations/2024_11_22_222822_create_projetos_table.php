@@ -17,10 +17,10 @@ class CreateProjetosTable extends Migration
             $table->text('descricao');
             $table->date('dt_inic');
             $table->date('dt_fim')->nullable();
-            $table->unsignedBigInteger('responsavel_id');
+            // $table->unsignedBigInteger('responsavel_id');
             $table->timestamps();
 
-            $table->foreign('responsavel_id')->references('id')->on('voluntarios')->onDelete('cascade');
+            // $table->foreign('responsavel_id')->references('id')->on('voluntarios')->onDelete('cascade');
         });
     }
 
