@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
+class CreateProjetosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,14 @@ return new class extends Migration
     {
         Schema::create('projetos', function (Blueprint $table) {
             $table->id();
-            $table->nome();
-            $table->descricao();
-            $table->dt_inic();
-            $table->dt_fim();
-            $table->id_responsavel();
+            $table->string('nome');
+            $table->text('descricao');
+            $table->date('dt_inic');
+            $table->date('dt_fim')->nullable();
+            $table->unsignedBigInteger('responsavel_id');
             $table->timestamps();
+
+            $table->foreign('id_responsavel')->references('id')->on('voluntarios')->onDelete('cascade');
         });
     }
 
