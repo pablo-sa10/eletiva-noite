@@ -16,7 +16,7 @@ class projetos extends Controller
     // Formulário de criação
     public function create()
     {
-        return view('ong.projeto');
+        return view('ong.cadastro_projeto');
     }
 
     // Salvar novo projeto
@@ -25,13 +25,15 @@ class projetos extends Controller
         $request->validate([
             'nome' => 'required|string|max:255',
             'descricao' => 'required|string',
-            'data_inicio' => 'required|date',
-            'data_fim' => 'nullable|date|after_or_equal:data_inicio',
-            'status' => 'required|string',
+            'dt_inic' => 'required|date',
+            'dt_fim' => 'nullable|date|after_or_equal:data_inicio',
+            //'status' => 'required|string',
         ]);
 
+        dd($request);
+
         Projeto::create($request->all());
-        return redirect()->route('ong.projetos.index')->with('success', 'Projeto criado com sucesso!');
+        return redirect()->route('ong.projeto')->with('success', 'Projeto criado com sucesso!');
     }
 
     // Formulário de edição
