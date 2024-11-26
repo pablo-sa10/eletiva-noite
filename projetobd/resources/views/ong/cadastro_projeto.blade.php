@@ -16,17 +16,17 @@
             <textarea class="form-control" id="descricao" name="descricao" rows="4" required>{{ old('descricao') }}</textarea>
         </div>
         <div class="mb-3">
-            <label for="data_inicio" class="form-label">Data de Início</label>
-            <input type="date" class="form-control" id="data_inicio" name="data_inicio" value="{{ old('data_inicio') }}" required>
+            <label for="dt_inic" class="form-label">Data de Início</label>
+            <input type="date" class="form-control" id="dt_inic" name="dt_inic" value="{{ old('dt_inic') }}" required>
         </div>
         <div class="mb-3">
-            <label for="data_fim" class="form-label">Data de Fim (opcional)</label>
-            <input type="date" class="form-control" id="data_fim" name="data_fim" value="{{ old('data_fim') }}">
+            <label for="dt_fim" class="form-label">Data de Fim (opcional)</label>
+            <input type="date" class="form-control" id="dt_fim" name="dt_fim" value="{{ old('dt_fim') }}">
         </div>
 
         <div class="mb-3 text-center">
             <button type="submit" class="btn btn-primary">Cadastrar Projeto</button>
-            <a href="{{ route('ong.projeto') }}" class="btn btn-secondary">Cancelar</a>
+            <a href="{{ route('ong.projeto') }}" class="btn btn-danger">Cancelar</a>
         </div>
     </form>
 </section>

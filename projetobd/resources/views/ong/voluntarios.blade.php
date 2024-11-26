@@ -49,7 +49,7 @@
                     <td>{{ $voluntario->email }}</td>
                     <td>{{ $voluntario->telefone }}</td>
                     <td>{{ $voluntario->atuacao }}</td>
-                    <td><button class="btn btn-primary">Editar</button></td>
+                    <td><a class="btn btn-primary" href="{{ route('ong.editarVoluntario', $voluntario->id) }}">Editar</a></td>
                     <td><button class="btn btn-danger">Excluir</button></td>
                 </tr>
                 @endforeach

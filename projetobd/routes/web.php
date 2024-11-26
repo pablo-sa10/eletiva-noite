@@ -9,7 +9,9 @@ use App\Http\Controllers\VoluntarioController;
 Route::controller(VoluntarioController::class)->group(function(){
     Route::get('/ong', 'voluntarios')->name('ong.voluntarios');
     Route::get('/ong/cadastro_voluntario', 'create')->name('ong.cadastro_voluntario');
+    Route::get('/ong/editarVoluntario/{id}', 'edit')->name('ong.editarVoluntario');
     Route::post('/ong/salvarVoluntario', 'store')->name('ong.salvarVoluntario');
+    Route::put('/ong/atualizarVoluntario/{id}', 'update')->name('ong.atualizarVoluntario'); 
 });
 
 Route::controller(projetos::class)->group(function () {
@@ -17,7 +19,7 @@ Route::controller(projetos::class)->group(function () {
     Route::get('/ong/cadastro_projeto', 'create')->name('ong.cadastro_projeto'); 
     Route::get('/ong/editar_projeto/{id}', 'edit')->name('ong.projeto.edit'); 
     Route::post('/ong/salvarProjeto', 'store')->name('ong.salvarProjeto'); 
-    Route::put('/ong/atualizar/{id}', 'update')->name('ong.atualizarProjeto'); 
+    Route::put('/ong/atualizarProjeto/{id}', 'update')->name('ong.atualizarProjeto'); 
     Route::delete('/ong/excluir/{id}', 'destroy')->name('ong.projeto.destroy'); 
 });
 

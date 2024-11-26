@@ -31,7 +31,28 @@ class VoluntarioController extends Controller
             'atuacao' => $request->atuacao,
         ]);
 
-        return redirect()->to('/')->with('success', 'Voluntário cadastrado com sucesso!');
+        return redirect()->route('ong.voluntarios')->with('success', 'Voluntário cadastrado com sucesso!');
+    }
+
+    public function edit($id)
+    {
+        $voluntario = Voluntario::findOrFail($id);
+        return view('ong.editar_voluntario', compact('voluntario'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'nome' => 'required|string|max:255',
+            'idade' => 'required|integer',
+            'email' => 'required|email|unique:voluntarios,email,' . $id,
+            'telefone' => 'required|string',
+            'atuacao' => 'required|string|max:255',
+        ]);
+
+        $voluntario = Voluntario::findOrFail($id);
+        $voluntario->update($request->all());
+        return redirect()->route('ong.voluntarios')->with('success', 'Voluntario atualizado com sucesso!');
     }
 
     public function voluntarios()

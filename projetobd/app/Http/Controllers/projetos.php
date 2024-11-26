@@ -30,7 +30,7 @@ class projetos extends Controller
             //'status' => 'required|string',
         ]);
 
-        dd($request);
+        // dd($request);
 
         Projeto::create($request->all());
         return redirect()->route('ong.projeto')->with('success', 'Projeto criado com sucesso!');
@@ -40,7 +40,7 @@ class projetos extends Controller
     public function edit($id)
     {
         $projeto = Projeto::findOrFail($id);
-        return view('ong.projeto_edit', compact('projeto'));
+        return view('ong.editar_projeto', compact('projeto'));
     }
 
     // Atualizar projeto
@@ -49,14 +49,13 @@ class projetos extends Controller
         $request->validate([
             'nome' => 'required|string|max:255',
             'descricao' => 'required|string',
-            'data_inicio' => 'required|date',
-            'data_fim' => 'nullable|date|after_or_equal:data_inicio',
-            'status' => 'required|string',
+            'dt_inic' => 'required|date',
+            'dt_fim' => 'nullable|date|after_or_equal:data_inicio',
         ]);
 
         $projeto = Projeto::findOrFail($id);
         $projeto->update($request->all());
-        return redirect()->route('ong.projetos.index')->with('success', 'Projeto atualizado com sucesso!');
+        return redirect()->route('ong.projeto')->with('success', 'Projeto atualizado com sucesso!');
     }
 
     // Excluir projeto
