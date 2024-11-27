@@ -55,6 +55,12 @@ class VoluntarioController extends Controller
         return redirect()->route('ong.voluntarios')->with('success', 'Voluntario atualizado com sucesso!');
     }
 
+    public function destroy($id){
+        $voluntario = Voluntario::findOrFail($id);
+        $voluntario->delete();
+        return redirect()->route('ong.voluntarios')->with('success', 'Voluntario excluído com sucesso!');
+    }
+
     public function voluntarios()
     {
         $voluntarios = Voluntario::all();

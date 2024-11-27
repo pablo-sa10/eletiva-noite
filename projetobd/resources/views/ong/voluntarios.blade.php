@@ -31,16 +31,6 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">Pablo</th>
-                    <td>21</td>
-                    <td>pablomoura2016@gmail.com</td>
-                    <td>(18) 997526520</td>
-                    <td>Médico</td>
-                    <td><button class="btn btn-primary">Editar</button></td>
-                    <td><button class="btn btn-danger">Excluir</button></td>
-                </tr>
-
                 @if(isset($voluntarios))
                 @foreach($voluntarios as $voluntario)
                 <tr>
@@ -50,7 +40,13 @@
                     <td>{{ $voluntario->telefone }}</td>
                     <td>{{ $voluntario->atuacao }}</td>
                     <td><a class="btn btn-primary" href="{{ route('ong.editarVoluntario', $voluntario->id) }}">Editar</a></td>
-                    <td><button class="btn btn-danger">Excluir</button></td>
+                    <td>
+                        <form action="{{ route('ong.voluntario.destroy', $voluntario->id) }}" method="POST" onsubmit="return confirm('Tem certeza que deseja excluir este voluntario?')">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger">Excluir</button>
+                        </form>
+                    </td>
                 </tr>
                 @endforeach
                 @else

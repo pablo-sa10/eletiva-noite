@@ -63,7 +63,7 @@ class projetos extends Controller
     {
         $projeto = Projeto::findOrFail($id);
         $projeto->delete();
-        return redirect()->route('ong.projetos.index')->with('success', 'Projeto excluído com sucesso!');
+        return redirect()->route('ong.projeto')->with('success', 'Projeto excluído com sucesso!');
     
     }
 }
