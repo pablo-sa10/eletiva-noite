@@ -47,9 +47,9 @@
     </div>
 </section>
 
-<section>
+<section class="my-5 container d-flex justify-content-center" style="max-height: 500px; max-width: 500px;">
     {{-- GRAFICO --}}
-    <canvas class="container my-5" id="myChart" width="400" height="200"></canvas>
+    <canvas class="" id="myChart" width="100" height="100"></canvas>
 </section>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
@@ -57,14 +57,19 @@
     const labels = @json($labels); // Dados das labels
     const data = @json($data); // Dados para o gráfico
 
+    const backgroundColor = [
+        'rgba(255, 99, 132, 0.5)', // Vermelho
+        'rgba(54, 162, 235, 0.5)', // Azul
+    ]
+
     new Chart(ctx, {
-        type: 'bar', // Tipo de gráfico (bar, line, pie, etc.)
+        type: 'pie',
         data: {
             labels: labels,
             datasets: [{
-                label: 'Vendas',
+                label: 'Total',
                 data: data,
-                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                backgroundColor: backgroundColor,
                 borderColor: 'rgba(75, 192, 192, 1)',
                 borderWidth: 1
             }]
